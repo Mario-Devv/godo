@@ -19,7 +19,8 @@ function App() {
       </header>
 
       <section>
-        <NewGoalsMobile />
+        {/* <NewGoalsMobile />
+        Move to Task */}
         <Routes>
           {/* Redirect / to dashboard */}
           <Route path='/' element={<Navigate to='/dashboard' replace/>} />

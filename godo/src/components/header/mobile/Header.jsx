@@ -20,7 +20,7 @@ export const HeaderMobile = () => {
         setIsOpen(!isOpen);
     }
 
-    
+
 
     return (
         <>
@@ -48,40 +48,46 @@ export const HeaderMobile = () => {
                 </div>
             </div>
 
-            <aside className={` text-white fixed w-1/2 h-full top-0 left-0 bg-[#3730A3] shadow-lg  transition-transform duration-300 ease-in
-            ${isOpen ? 'translate-x-0' : ' -translate-x-full'}`}>
-                <div className="flex flex-col gap-8">
-                    <section className="flex flex-col gap-1 p-4">
-                        <h2 className="text-2xl font-bold">Go Do</h2>
-                        <p className="text-[#C7D2FE] text-sm">Vence la procastinación</p>
-                    </section>
+            <div className={
+                `
+                ${isOpen ? 'transition-all duration-300 ease-in-out z-10 absolute top-0 left-0 w-full h-full bg-black/90' : 'transition-all duration-300 ease-in-out'}
+            `
+            }>
+                <aside className={`z-50 text-white fixed w-1/2 h-full top-0 left-0 bg-[#3730A3] shadow-lg  transition-transform duration-300 ease-in 
+                ${isOpen ? 'translate-x-0 ' : ' -translate-x-full'}`}>
+                    <div className="flex flex-col gap-8">
+                        <section className="flex flex-col gap-1 p-4">
+                            <h2 className="text-2xl font-bold">Go Do</h2>
+                            <p className="text-[#C7D2FE] text-sm">Vence la procastinación</p>
+                        </section>
 
-                    <nav className="">
-                        <ul>
-                            {MenuItems.map((item) => {
-                                const isActive = location.pathname === item.path;
+                        <nav className="">
+                            <ul>
+                                {MenuItems.map((item) => {
+                                    const isActive = location.pathname === item.path;
 
-                                return (
-                                    <Link to={item.path}
-                                        key={item.name}
-                                        onClick={() => setIsOpen(false)}
-                                        className={`flex gap-2 px-4 py-4 transition-all duration-100
+                                    return (
+                                        <Link to={item.path}
+                                            key={item.name}
+                                            onClick={() => setIsOpen(false)}
+                                            className={`flex gap-2 px-4 py-4 transition-all duration-100
                                     ${isActive ? ' bg-[#312E81] border-r-4' : 'text-white'}
                                     `
 
-                                        }>
-                                        <img src={item.icon} alt={item.icon} />
-                                        <p>{item.name}</p>
-                                    </Link>
-                                )
-                            })
-                            }
-                        </ul>
-                    </nav>
+                                            }>
+                                            <img src={item.icon} alt={item.icon} />
+                                            <p>{item.name}</p>
+                                        </Link>
+                                    )
+                                })
+                                }
+                            </ul>
+                        </nav>
 
-                </div>
+                    </div>
 
-            </aside>
+                </aside>
+            </div >
 
         </>
     )
