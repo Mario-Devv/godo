@@ -7,6 +7,7 @@ import { Dashboard } from './pages/Dashboard'
 import { Pomodoro } from './pages/Pomodoro'
 import { Stats } from './pages/stats'
 import { Task } from './pages/Task'
+import { Toaster } from 'react-hot-toast'
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <div><Toaster /></div>
+      
       <header className='p-4 flex justify-between bg-[#FFFFFF] items-center shadow-md'>
         <HeaderMobile />
       </header>
@@ -23,13 +26,13 @@ function App() {
         Move to Task */}
         <Routes>
           {/* Redirect / to dashboard */}
-          <Route path='/' element={<Navigate to='/dashboard' replace/>} />
+          <Route path='/' element={<Navigate to='/dashboard' replace />} />
 
           {/* Routes for users */}
-          <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/pomodoro' element={<Pomodoro/>} />
-          <Route path='/tareas' element={<Task/>} />
-          <Route path='/estadisticas' element={<Stats/>} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/pomodoro' element={<Pomodoro />} />
+          <Route path='/tareas' element={<Task />} />
+          <Route path='/estadisticas' element={<Stats />} />
         </Routes>
       </section>
 
